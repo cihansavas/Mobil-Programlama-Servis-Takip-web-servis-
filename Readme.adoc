@@ -1,0 +1,19 @@
+:imagesdir: resimler
+
+# Mobil Servis Uygulaması
+
+
+==== Uygulamanın Özeti :
+Veritabanındaki teknik servis taleplerini liste halinde gösterilip , güncellenmesinin sağlanması.
+
+==== Ekran Görüntüleri
+image::ana-ekran.PNG[splash,360,640,align="center"]
+image::detay-ekrani.PNG[splash,360,640,align="center"]
+image::yatay-ekran.PNG[splash,640,360,align="center"]
+
+
+==== Video
+Uygulamanın kullanım videosu çekilmiştir. Dosya adı: bandicam 2016-12-30 17-44-52-806
+
+==== Web service
+Veritabanında varolan talepleri C# yardımı çekip güncellemeye yaramaktadır.

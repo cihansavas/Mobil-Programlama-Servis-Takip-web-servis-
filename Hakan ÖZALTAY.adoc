@@ -1,0 +1,8 @@
+= M. Hakan ÖZALTAY 150202137
+
+== Gerçekleştirilen Konu Başlıkları
+Web servis oluşturuldu ve bu web servise bağlanılarak veri çekme ve güncelleme işleri yapıldı.
+Kullanım videosu çekildi. Dosya adı: bandicam 2016-12-30 17-44-52-806
+
+.Componentler :
+=== 1)ksoap2-android

@@ -1,0 +1,14 @@
+:imagesdir: resimler
+= Bekir AKKUŞ 150202120
+
+== Görev Konuları:
+
+=== 1)Projenin oluştulması ve Github'ta Repository oluşturma.
+
+=== 2)GitHub'a proje elemanlarını ekleme.
+ 
+=== 3)Tablet ve Telefonlarda hem yatay hemde dikey olarak LAYOUT tasarımlarının yapılması.
+
+=== 4)Resimlerin farklı çözünürlüklere göre hazırlanarak projeye eklenmesi.
+
+=== 5) Farklı drawable klasörleri oluşturup, farklı çözünürlükteki resimleri ekleyerek resmin birden çok çözünürlükteki telefonlarda aynı boyutlarda gösterilmesinin sağlanması.

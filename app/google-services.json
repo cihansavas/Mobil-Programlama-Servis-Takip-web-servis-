@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "185053403515",
+    "firebase_url": "https://servis-eec57.firebaseio.com",
+    "project_id": "servis-eec57",
+    "storage_bucket": "servis-eec57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185053403515:android:2b6000723c9e0fcb",
+        "android_client_info": {
+          "package_name": "com.example.cihan_sf2ak5t.mobilservis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185053403515-koau5sj6lg89lpihcbujbrhm7krnmi3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzMyAMFAxPhO_qxMq1flMoCpN3l7kY53o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

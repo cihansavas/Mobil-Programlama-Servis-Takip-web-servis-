@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="match_parent">
+
+
+ <LinearLayout
+     android:layout_weight="1"
+     android:layout_width="0dp"
+     android:layout_height="wrap_content"
+     android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_textviev"
+        android:text="id"
+        android:visibility="invisible" />
+
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/baslik_textviev"
+        android:text="baslik"
+         android:textStyle="normal|bold"
+         android:textSize="18sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/aciklama_textviev"
+        android:text="aciklama"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/durum_textviev"
+        android:text="durum"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yorum_textviev"
+        android:text="yorum"
+        android:visibility="invisible" />
+ </LinearLayout>
+    <Button
+        android:text="Baslat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/baslat" />
+</LinearLayout>

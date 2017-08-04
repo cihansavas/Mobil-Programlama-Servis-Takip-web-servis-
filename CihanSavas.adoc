@@ -1,0 +1,210 @@
+:imagesdir: resimler
+= Cihan SAVAŞ 130202098
+
+== Gerçekleştirilen Konu Başlıkları:Linear Layout,Relative Layout,ListView,Bundle,İntent componentleri görev başliklarimdir.
+
+
+=== 1)Relative & Linear Layout
+. Activity_mobil_servis_takip.xml ve activity_servis.xml dosyalarında Relative Layout, 
+satir.xml dosyasında ise Linear Layout kullanılmıştır.
+
+=== 2)List View 
+. Web Servisten gelen verileri göstermek için kullanılan componenttir.
+ Uygulama içinde yazılan adaptor ile satir.xml  List View'in her bir satirinda gösterilmekte ve bu alanlara web servisten gelen bilgiler ile doldurulmaktadir.
+ Not:web servis kısmı diğer grup arkadaşımız yapacağından şu anlık veriler manuel olarak girilmektedir.
+ [source , java  ]
+-----
+//Veriler için oluşturulan sınıfımız
+
+    private String id;
+    private String baslik;
+    private String aciklama;
+    private String yorum;
+    private String durum;
+
+    public ServisAyar(String mid,String mbaslik,String maciklama,String myorum,String mdurum)
+    {
+        id=mid;
+        baslik=mbaslik;
+        aciklama=maciklama;
+        yorum=myorum;
+        durum=mdurum;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getBaslik() {
+        return baslik;
+    }
+
+    public void setBaslik(String baslik) {
+        this.baslik = baslik;
+    }
+
+    public String getAciklama() {
+        return aciklama;
+    }
+
+    public void setAciklama(String aciklama) {
+        this.aciklama = aciklama;
+    }
+
+    public String getYorum() {
+        return yorum;
+    }
+
+    public void setYorum(String yorum) {
+        this.yorum = yorum;
+    }
+
+    public String getDurum() {
+        return durum;
+    }
+
+    public void setDurum(String durum) {
+        this.durum = durum;
+    }
+
+}
+//MANUEL VERİ GİRİŞİ
+public class Mobil_ServisTakip extends AppCompatActivity {
+ListView liste_ekrani;
+    List<ServisAyar> servistalepleri =new ArrayList<ServisAyar>();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mobil__servis_takip);
+        liste_ekrani=(ListView) findViewById(R.id.liste_ekrani);
+        BaglantiAdaptor Baglanti=new BaglantiAdaptor(this, servistalepleri);
+        liste_ekrani.setAdapter(Baglanti);
+//Bu veriler sonraki aşamada webservisten gelenlerler doldurulmaktadir.
+
+        servistalepleri.add(new ServisAyar("1","a","b","c","d"));
+        servistalepleri.add(new ServisAyar("2","d","e","f","g"));
+        servistalepleri.add(new ServisAyar("3","ç","i","j","k"));
+        servistalepleri.add(new ServisAyar("4","ö","z","y","l"));
+        servistalepleri.add(new ServisAyar("5","m","x","v","m"));
+        servistalepleri.add(new ServisAyar("6","n","g","ü","n"));
+        servistalepleri.add(new ServisAyar("7","i","a","u","o"));
+        servistalepleri.add(new ServisAyar("8","ş","y","t","ö"));
+        servistalepleri.add(new ServisAyar("9","j","o","ş","p"));
+        servistalepleri.add(new ServisAyar("10","q","p","s","r"));
+
+    }
+}
+
+//BAĞLANTI ADAPTORUMUZ
+public class BaglantiAdaptor extends BaseAdapter {
+    LayoutInflater layoutInflater;
+    List<ServisAyar> servisAyarList;
+    Activity activity;
+    public BaglantiAdaptor(Activity activity, List<ServisAyar> mServisAyarList){
+        layoutInflater=(LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        servisAyarList=mServisAyarList;
+        this.activity=activity;
+    }
+
+
+    @Override
+    public int getCount() {
+        return servisAyarList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return servisAyarList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+	View satirView;
+        satirView=layoutInflater.inflate(R.layout.satir,null);
+        final TextView idBaglanti=(TextView) satirView.findViewById(R.id.id_textviev);
+        final TextView baslikBaglanti=(TextView) satirView.findViewById(R.id.baslik_textviev);
+        final TextView aciklamaBaglanti=(TextView) satirView.findViewById(R.id.aciklama_textviev);
+        final TextView durumBaglanti=(TextView) satirView.findViewById(R.id.durum_textviev);
+        final TextView yorumBaglanti=(TextView) satirView.findViewById(R.id.yorum_textviev);
+        final Button button1=(Button) satirView.findViewById(R.id.baslat);
+
+
+final ServisAyar talep=servisAyarList.get(position);
+
+        idBaglanti.setText(talep.getId().toString());
+        baslikBaglanti.setText(talep.getBaslik().toString());
+        aciklamaBaglanti.setText(talep.getAciklama().toString());
+        durumBaglanti.setText(talep.getDurum().toString());
+        yorumBaglanti.setText(talep.getYorum().toString());
+
+button1.setOnClickListener(new View.OnClickListener() {
+    @Override
+        Intent intent=new Intent(activity.getApplicationContext(),ServisTalebi.class);
+        intent.putExtra("id",talep.getId().toString());
+        intent.putExtra("baslik",talep.getBaslik().toString());
+        intent.putExtra("aciklama",talep.getAciklama().toString());
+        intent.putExtra("durum",talep.getDurum().toString());
+        intent.putExtra("yorum",talep.getYorum().toString());
+
+        activity.startActivity(intent);
+
+
+    }
+});
+
+        return satirView;
+    }
+}
+
+-----
+image::class_ve_xml_dosyalari.PNG[splash,180,320,align="center"]
+=== 3)Intent
+
+. Activity sayfaları aralarında geçişleri sağlamaktadır.
+ [source , java  ]
+-----
+//ServisTalebi sayfasından Ana sayfaya geçiş :
+Intent intent2=new Intent(getApplicationContext(),Mobil_ServisTakip.class);
+                startActivity(intent2);
+//Anasayfadan sayfasından Servis Talebine geçiş activity geçiş :				
+Intent intent=new Intent(activity.getApplicationContext(),ServisTalebi.class);
+startActivity(intent);
+-----
+
+
+=== 4)Bundle
+
+. İntent aracılığıyla activity geçişlerinde veri paylaşımını sağlamaktadır.
+ [source , java  ]
+-----
+
+
+		
+// Anasayfada bulunan verileri Servis Talep sayfasına yönlendirir		
+		Bundle extras = getIntent().getExtras();
+        idtext.setText(extras.getString("id"));
+        basliktext.setText(extras.getString("baslik"));
+        aciklamatext.setText(extras.getString("aciklama"));
+        yorumtext.setText(extras.getString("yorum"));
+		
+//Servisis Talep sayfasına gelen veriler okunup ilgili kısımlara giriliyor		
+		Intent intent=new Intent(activity.getApplicationContext(),ServisTalebi.class);
+        intent.putExtra("id",talep.getId().toString());
+        intent.putExtra("baslik",talep.getBaslik().toString());
+        intent.putExtra("aciklama",talep.getAciklama().toString());
+        intent.putExtra("durum",talep.getDurum().toString());
+        intent.putExtra("yorum",talep.getYorum().toString());
+
+        activity.startActivity(intent);
+		
+		
+		
+-----
